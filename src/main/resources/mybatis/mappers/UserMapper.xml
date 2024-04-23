@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.template.user.mapper.UserMapper">
+
+	<insert id="insertUser">
+		INSERT INTO TB_USER (USER_ID, USER_PW)
+		VALUES (#{user.userId}, #{user.userPw})
+	</insert>
+
+	<select id="userLogIn" resultType="com.project.template.user.dto.UserDTO">
+		SELECT USER_NO, USER_NAME, USER_ID, USER_PASSWORD, USER_ROLE, USER_DEL_FL
+		FROM TB_USER
+		WHERE USER_ID = #{userId}
+	</select>
+
+</mapper>
