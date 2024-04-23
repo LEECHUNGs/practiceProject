@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layouts/default"
+>
+  <th:block th:fragment="profile">
+    <th:block th:if="${session.currentUser == null}">
+      <form action="/user/login" method="post">
+        User ID: <input type="text" name="userId"><br>
+        User PW: <input type="password" name="userPw"><br>
+        <label class="remember-me">Remeber Me<input type="checkbox"></label><br>
+        <button>Log In</button>
+      </form>
+      <a href="/user/signup">Sign Up</a>
+    </th:block>
+
+    <th:block th:if="${session.currentUser != null}">
+    User Profile
+  </th:block>
+</html>
